@@ -1,0 +1,21 @@
+class StoreController < ApplicationController
+  def list
+    @items = Item.order("iName").page(params[:page]).per(5)
+    @cat = Category.all
+    
+    @items = Item.search(params[:search])
+
+   
+  end
+
+  def electronics
+    @items = Item.where(:category_id => [1])
+
+    if params[:iPrice] == '10' #convert to when/case statement
+       @items = Item.where(:category_id => [3], :iPrice => [0..10])
+    end
+  end
+
+
+
+end

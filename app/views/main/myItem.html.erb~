@@ -1,0 +1,32 @@
+<% if user_signed_in? %>
+</ br><%= link_to 'Edit my Account Settings', edit_user_registration_path %>
+<%= link_to 'View My Items', main_myItem_path %>
+<%= link_to 'Post New Item', new_item_path%>
+
+
+<h1>My Items</h1>
+
+
+
+
+<% @myItems.each do |item| %>
+ <table>
+    <tr>
+    
+    <td><h3><%= item.iName %></h3><br />
+    <% image_tag(item.iPic) %></td>
+    <td><%= item.iDescrip %></td>
+    <td><div class = "price_line"><br />
+    <span class = "price" ><%= number_to_currency(item.iPrice) %></span><br />
+    <% if item.inclu_email? %>	
+    <a href="mailto:<%= item.user.email %>">Email Seller</a><br />
+    <% end %>
+    <% if item.incl_phone? %>	
+    <%= item.user.phoneNum %><br />
+    <% end %></td>
+    </div>
+    </tr> 
+
+</table>
+<% end %>
+<% end %>

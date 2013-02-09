@@ -1,0 +1,4 @@
+class AddAvatarToItems < ActiveRecord::Migration
+  def change
+  end
+end

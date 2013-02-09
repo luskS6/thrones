@@ -1,0 +1,32 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div><%= f.label :fname %><br />
+  <%= f.text_field :fname %></div>
+
+  <div><%= f.label :lname %><br />
+  <%= f.text_field :lname %></div>
+
+  <% @loc = Location.all %>
+  <%= f.label :location_id %><br />
+  <%= f.collection_select(:location_id, @loc, :id, :l_Name) %>
+
+  <div><%= f.label :phoneNum %><br />
+  <%= f.text_field :phoneNum %><br />
+  Your phone number will not be publicly displayed unless you choose to.</div>
+
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email %></div>
+
+  <div><%= f.label :password %><br />
+  <%= f.password_field :password %></div>
+
+  <div><%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %></div>
+
+  <div><%= f.submit "Sign up" %></div>
+<% end %>
+
+<%= render "devise/shared/links" %>

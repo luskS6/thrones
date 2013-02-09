@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  iName: MyString
+  iPrice: 9.99
+  iPic: MyString
+  iDescrip: MyText
+  user_id: 1
+  category_id: 1
+  incl_phone: false
+  inclu_email: false
+
+two:
+  iName: MyString
+  iPrice: 9.99
+  iPic: MyString
+  iDescrip: MyText
+  user_id: 1
+  category_id: 1
+  incl_phone: false
+  inclu_email: false

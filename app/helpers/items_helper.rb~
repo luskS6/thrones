@@ -1,0 +1,9 @@
+module ItemsHelper
+
+def expire?
+   if distance_of_time_in_words_to_now(self.created_at) >= 1.hour  
+     return true
+   end
+end
+
+end

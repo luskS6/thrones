@@ -1,0 +1,29 @@
+<h1>Store#electronics</h1>
+<p>Find me in app/views/store/electronics.html.erb</p>
+
+<h1>Electronics</h1>
+
+<%= link_to 'Items under $10', store_electronics_path({:itemPrice => '10'}) %>
+
+<% @items.each do |item| %>
+<%= distance_of_time_in_words_to_now(item.created_at) %>
+<% if distance_of_time_in_words_to_now(item.created_at) >= "5 minutes" %> 
+   <% item.destroy %>
+<% end %>
+
+   
+  <div class = "entry">
+    <% image_tag(item.iPic) %>
+    <h3><%= item.iName %></h3><br />
+    <%= item.iDescrip %>
+    <div class = "price_line"><br />
+    <span class = "price" ><%= number_to_currency(item.iPrice) %></span><br />
+    <% if item.inclu_email? %>	
+    <a href="mailto:<%= item.user.email %>">Email Seller</a><br />
+    <% end %>
+    <% if item.incl_phone? %>	
+    <%= item.user.phoneNum %><br />
+    <% end %>
+    </div>
+  </div>
+<% end %>

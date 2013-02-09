@@ -1,0 +1,43 @@
+<h1>Listing items</h1>
+
+<table>
+  <tr>
+    <th>Iname</th>
+    <th>Iprice</th>
+    <th>Ipic</th>
+    <th>Idescrip</th>
+    <th>User</th>
+    <th>Category</th>
+    <th>Incl phone</th>
+    <th>Inclu email</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @items.each do |item| %>
+<%= distance_of_time_in_words_to_now(item.created_at) %>
+<% if distance_of_time_in_words_to_now(item.created_at) == "5 minutes" %> 
+   <% item.destroy %>
+<% end %>
+
+
+  <tr>
+    <td><%= item.iName %></td>
+    <td><%= item.iPrice %></td>
+    <td><%= item.iPic %></td>
+    <td><%= item.iDescrip %></td>
+    <td><%= item.user_id %></td>
+    <td><%= item.category_id %></td>
+    <td><%= item.incl_phone %></td>
+    <td><%= item.inclu_email %></td>
+    <td><%= link_to 'Show', item %></td>
+    <td><%= link_to 'Edit', edit_item_path(item) %></td>
+    <td><%= link_to 'Destroy', item, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Item', new_item_path %>

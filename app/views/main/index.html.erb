@@ -1,0 +1,29 @@
+
+
+<h2>The Resevoir</h2>
+<% if user_signed_in? %>
+<%= link_to 'Edit my Account Settings', edit_user_registration_path %>
+<%= link_to 'View My Items', main_myItem_path %>
+<%= link_to 'Post New Item', new_item_path%>
+
+<h2>What's new?</h2>
+
+<% @items.each do |item| %>
+  <div class = "entry">
+    <% image_tag(item.iPic) %>
+    <h3><%= item.iName %></h3><br />
+    <%= item.iDescrip %>
+    <div class = "price_line"><br />
+    <span class = "price" ><%= number_to_currency(item.iPrice) %></span><br />	
+    <% if item.inclu_email? %>	
+    <a href="mailto:<%= item.user.email %>">Email Seller</a><br />
+    <% end %>
+    <% if item.incl_phone? %>	
+    <%= item.user.phoneNum %><br />
+    <% end %>
+    </div>
+  </div>
+<% end %>
+
+
+<% end %>

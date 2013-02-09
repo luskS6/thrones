@@ -1,0 +1,9 @@
+rails g scaffold location l_name:string
+rails g scaffold category c_name:string
+rails generate devise:install
+rails generate devise:views 
+rails g cancan:ability
+rails generate devise user fname:string lname:string phoneNum:string location_id:integer role:string
+rails g scaffold item iName:string iPrice:decimal iPic:string iDescrip:text user_id:integer category_id:integer incl_phone:boolean inclu_email:boolean
+rake db:migrate
+

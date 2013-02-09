@@ -1,0 +1,35 @@
+
+<h1>The List</h1>
+<%= paginate @products %>
+<% @cat.each do |cat| %>
+<%= link_to cat.c_name, cat.c_name.downcase %>
+<% end %>
+
+<%= form_tag store_list_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+<table>
+ 
+
+<% @items.each do |item| %>
+ 
+    <tr>
+    
+    <td><h3><%= item.iName %></h3><br />
+    <% image_tag(item.avatar.url(:square)) %></td>
+    <td><%= item.iDescrip %></td>
+    <td><div class = "price_line"><br />
+    <span class = "price" ><%= number_to_currency(item.iPrice) %></span><br />
+    <% if item.inclu_email? %>	
+    <a href="mailto:<%= item.user.email %>">Email Seller</a><br />
+    <% end %>
+    <% if item.incl_phone? %>	
+    <%= item.user.phoneNum %><br />
+    <% end %></td>
+    </div>
+    </tr> 
+<% end %>
+</table>

@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Iname:</b>
+  <%= @item.iName %>
+</p>
+
+<p>
+  <b>Iprice:</b>
+  <%= @item.iPrice %>
+</p>
+
+<p>
+  <b>Ipic:</b>
+  <%= @item.iPic %>
+</p>
+
+<p>
+  <b>Idescrip:</b>
+  <%= @item.iDescrip %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @item.user_id %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @item.category_id %>
+</p>
+
+<p>
+  <b>Incl phone:</b>
+  <%= @item.incl_phone %>
+</p>
+
+<p>
+  <b>Inclu email:</b>
+  <%= @item.inclu_email %>
+</p>
+
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>
